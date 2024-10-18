@@ -4,10 +4,7 @@ import com.petcom.petshop.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/users")
@@ -21,4 +18,11 @@ public class UserController {
         userService.saveUser(userDto);
         return new ResponseEntity<>(userDto,HttpStatus.CREATED);
     }
+
+    @PutMapping("update-user/{userId}")
+    public ResponseEntity<UserDto> updateUser(@PathVariable long userId , @RequestBody UserDto userDto){
+        userService.updateUser(userId,userDto);
+        return new ResponseEntity<>(userDto, HttpStatus.CREATED);
+    }
+
 }

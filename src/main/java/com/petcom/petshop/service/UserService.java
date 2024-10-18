@@ -5,5 +5,5 @@ import com.petcom.petshop.entity.User;
 import org.springframework.http.ResponseEntity;
 
 public interface UserService {
-    ResponseEntity<String> saveUser(UserDto userDto);
+    String saveUser(UserDto userDto);
 }

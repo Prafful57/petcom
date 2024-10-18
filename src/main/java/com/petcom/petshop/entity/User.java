@@ -30,9 +30,8 @@ public class User {
     @Column(name = "email")
     private String email;
 
-    @Pattern(regexp = "^\\d{10}$", message = "Phone number must be exactly 10 digits.")
     @Column(name = "phone_no")
-    private Long phoneNo;
+    private String phoneNo;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "role_id")
@@ -40,4 +39,7 @@ public class User {
 
     @Column(name = "is_active")
     private Boolean isActive;
+
+    public void setRole(int i, String s) {
+    }
 }

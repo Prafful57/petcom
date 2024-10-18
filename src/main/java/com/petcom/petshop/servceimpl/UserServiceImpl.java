@@ -4,7 +4,6 @@ import com.petcom.petshop.dto.UserDto;
 import com.petcom.petshop.entity.User;
 import com.petcom.petshop.repository.UserRepo;
 import com.petcom.petshop.service.UserService;
-import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,13 +17,13 @@ public class UserServiceImpl implements UserService {
     @Autowired
     UserRepo userRepo;
     @Override
-    public ResponseEntity<String> saveUser(UserDto userDto) {
+    public String saveUser(UserDto userDto) {
         User user = new User();
         user.setUserName(userDto.getUserName());
         user.setPassword(userDto.getPassword());
         user.setEmail(userDto.getEmail());
         user.setPhoneNo(userDto.getPhoneNo());
         userRepo.save(user);
-        return ResponseEntity.ok("User Saved");
+        return "User saved successfully";
     }
 }

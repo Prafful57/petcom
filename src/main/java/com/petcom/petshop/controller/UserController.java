@@ -21,5 +21,4 @@ public class UserController {
         userService.saveUser(userDto);
         return new ResponseEntity<>(userDto,HttpStatus.CREATED);
     }
-
 }

@@ -34,10 +34,13 @@ public class User {
     @Column(name = "phone_no")
     private Long phoneNo;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "role_id")
     private Role role;
 
     @Column(name = "is_active")
     private Boolean isActive;
+
+    public void setRole(int i, String s) {
+    }
 }

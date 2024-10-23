@@ -2,6 +2,9 @@ package com.petcom.petshop.controller;
 import com.petcom.petshop.dto.UserDto;
 import com.petcom.petshop.entity.User;
 import com.petcom.petshop.service.UserService;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,5 +37,10 @@ public class UserController {
     @DeleteMapping("delete-user/{userId}")
     public User deleteUser(@PathVariable long userId){
     	return userService.deleteUserById(userId);
+    }
+    
+    @GetMapping("get-users")
+    public List<User> getAllUsers(){
+    	return userService.getAllUsers();
     }
 }

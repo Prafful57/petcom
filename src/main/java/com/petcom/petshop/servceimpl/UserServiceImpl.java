@@ -5,12 +5,9 @@ import com.petcom.petshop.entity.User;
 import com.petcom.petshop.repository.UserRepo;
 import com.petcom.petshop.service.UserService;
 import lombok.extern.slf4j.Slf4j;
-import org.hibernate.annotations.NotFound;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.NoSuchElementException;
-import java.util.Optional;
 
 @Service
 @Slf4j
@@ -84,4 +81,19 @@ public class UserServiceImpl implements UserService {
         log.info("UserDetails Updated successfully!");
         return "User Updated successfully!";
     }
+
+	@Override
+	public User getUserById(long userId) {
+		User getUser =  userRepo.findById(userId).orElseThrow(()-> new NoSuchElementException("User with Id :"+userId+ " is not present"));
+		return getUser;
+	}
+
+	@Override
+	public User deleteUserById(long userId) {
+		User user = userRepo.findById(userId)
+		        .orElseThrow(() -> new NoSuchElementException("User with Id: " + userId + " is not present"));
+		    
+		    userRepo.deleteById(userId);
+		    return user;
+	}
 }

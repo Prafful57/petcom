@@ -1,5 +1,7 @@
 package com.petcom.petshop.service;
 
+import java.util.List;
+
 import com.petcom.petshop.dto.UserDto;
 
 import com.petcom.petshop.entity.User;
@@ -11,5 +13,7 @@ public interface UserService {
 	User getUserById(long userId);
 
 	User deleteUserById(long userId);
+
+	List<User> getAllUsers();
 
 }

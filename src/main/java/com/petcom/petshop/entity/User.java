@@ -1,8 +1,8 @@
 package com.petcom.petshop.entity;
 import javax.validation.constraints.*;
+
 import jakarta.persistence.*;
 import lombok.*;
-import org.antlr.v4.runtime.misc.NotNull;
 
 @Builder
 @Entity
